@@ -1,0 +1,24 @@
+//declare variables
+
+class Circle {
+  float x;
+  float y;
+  float d;
+
+//constructor to set up initial values
+
+  Circle() {
+    d = random(50, 200);
+    x = random(500, 900);
+    y = random(50, 550);
+  }
+  
+  void show() {
+    noFill();
+    strokeWeight(8);
+    stroke(waves[int(random(1, 5))]);
+    ellipse(x, y, d, d);
+    
+  
+  }
+}
