@@ -76,7 +76,7 @@ void draw() {
   String time = h + ":" + minp; // h_m
 
   fill(#71ACB0);
-  textSize(200);
+  textSize(400);
   textAlign(CENTER, CENTER);
   text(time, width/4, height/2); 
 
