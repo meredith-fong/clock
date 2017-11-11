@@ -1,0 +1,84 @@
+color[] waves = {#4983A2, #71ACB0, #B4DADB, #A0A4C7}; 
+PFont font;
+Circle c;
+
+int num = 10;
+ArrayList<Circle> circles;
+
+void setup() {
+  //size(1000, 600);
+  fullScreen();
+  smooth();
+  background(#FFFFFF);
+  //String[] fontList = PFont.list();
+  //printArray(fontList);
+  font = createFont("Arial", 18);
+  textFont(font);
+
+  circles = new ArrayList<Circle>();
+  for (int i = 0; i < num; i++) {
+    circles.add(new Circle(random(width/2, width), random(height), random(50, 350), random(50, 200), waves[int(random(4))]));
+  }
+  
+}
+
+
+void draw() {
+  background(255);
+  
+  // Do with respect to seconds every second
+  if (second()%1 == 0) {
+    //println(second());
+    for (int i = 0; i < 1; i++) {
+      circles.add(new Circle(random(500, 900), random(50, 550), random(50, 200), random(50, 200), waves[int(random(4))]));
+    }
+  }
+  
+  // Clear out all circles at second = 0
+  if (second() == 0) {
+    circles.clear();
+  }
+
+  for (Circle c : circles) {
+    c.show();
+  }
+
+
+
+  int count = 0;
+
+
+
+
+
+  String ap = "am";
+  int h = hour();    // Values from 0 - 23
+  int min = minute();  // Values from 0 - 59
+  int s = second();  // Values from 0 - 59
+
+  if (h == 0) {
+    h = 12;
+  }
+
+  if (h > 12) {
+    h = h%12;
+    ap = "pm";
+  }
+
+  String minp;  
+  if (min < 10) {
+    minp = nf(min, 2);
+  } else {
+    minp = "" + min;
+  }
+
+  //String time = "" +  h + ":" + min + ":" + s + " " + ap; // h_m_s__m_d_y
+  String time = h + ":" + minp; // h_m
+
+  fill(#71ACB0);
+  textSize(200);
+  textAlign(CENTER, CENTER);
+  text(time, width/4, height/2); 
+
+  
+}
