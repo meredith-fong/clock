@@ -1,0 +1,30 @@
+//declare variables
+
+class Circle {
+  float x;
+  float y;
+  float w;
+  float h;
+  color c;
+
+  //constructor to set up initial values
+  Circle(float x_, float y_, float w_, float h_, color c_) {
+    w = random(50, 350); 
+    h = w;  
+    x = random(width/2, width); 
+    y = random(height); 
+    c = c_; // set color
+  }
+
+  void show() {
+    frameRate(1);
+    noFill();
+    strokeWeight(8);
+    stroke(c);
+    ellipse(x, y, w, h);
+  }
+  
+  void clear() {
+    
+  }
+}
